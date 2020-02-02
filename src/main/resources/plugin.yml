@@ -10,3 +10,4 @@ authors: [HealPot, lgou2w]
 website: https://github.com/weihao/
 github: https://github.com/weihao/
 description: ${project.description}
+depend: [EnchantmentsEnhance]

@@ -9,11 +9,12 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.pixeltime.enchantmentsenhance.api.API;
 
 public class Main extends JavaPlugin implements Listener {
-    private static API enhanceAPI;
+    private API enhanceAPI;
 
     @Override
     public void onEnable() {
-        enhanceAPI = org.pixeltime.enchantmentsenhance.Main.getApi();
+        this.enhanceAPI = org.pixeltime.enchantmentsenhance.Main.getApi();
+        this.getServer().getPluginManager().registerEvents(this, this);
         super.onEnable();
     }
 
@@ -26,10 +27,10 @@ public class Main extends JavaPlugin implements Listener {
             public void run() {
                 int failstack = enhanceAPI.getFailstack(player.getName());
                 player.sendMessage(
-                        String.format("You currently has %d failstack.", failstack)
+                        String.format("You currently have %d failstack.", failstack)
                 );
             }
-        }.runTaskLater(org.pixeltime.enchantmentsenhance.Main.getMain(), 20L);
+        }.runTaskLater(this, 20L);
     }
 
 }

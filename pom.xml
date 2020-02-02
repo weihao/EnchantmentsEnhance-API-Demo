@@ -73,6 +73,7 @@
             <groupId>org.pixeltime</groupId>
             <artifactId>EnchantmentsEnhance-Plugin</artifactId>
             <version>7.9.8</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
