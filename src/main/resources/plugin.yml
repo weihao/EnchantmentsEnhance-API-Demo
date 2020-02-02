@@ -1,0 +1,12 @@
+name: ${project.name}
+prefix: ${project.name}
+api-version: 1.13
+main: org.pixeltime.eeapidemo.Main
+version: ${project.version}
+git-version: ${git.commit.id.abbrev}
+load: POSTWORLD
+author: HealPot
+authors: [HealPot, lgou2w]
+website: https://github.com/weihao/
+github: https://github.com/weihao/
+description: ${project.description}

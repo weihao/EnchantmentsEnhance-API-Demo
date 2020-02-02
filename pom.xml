@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.pixeltime</groupId>
+    <artifactId>ee-api-demo</artifactId>
+    <name>eeapidemo</name>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+    <url>https://github.com/weihao/soulbound/</url>
+
+    <description>A demo for EnchantmentsEnhance API.</description>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <bukkit.version>1.15.1-R0.1-SNAPSHOT</bukkit.version>
+        <ldk.version>0.2.0</ldk.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>bukkit-repo</id>
+            <url>https://repo.md-5.net/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- Spigot -->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>${bukkit.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Bukkit -->
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>bukkit</artifactId>
+            <version>${bukkit.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>1.6.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>1.6.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.lgou2w</groupId>
+            <artifactId>ldk-bukkit-common</artifactId>
+            <version>${ldk.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.pixeltime</groupId>
+            <artifactId>EnchantmentsEnhance-Plugin</artifactId>
+            <version>7.9.8</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+        <plugins>
+            <!-- git-commit-id -->
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>4.0.0</version>
+                <executions>
+                    <execution>
+                        <id>git-info</id>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <injectAllReactorProjects>true</injectAllReactorProjects>
+                    <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
+                    <verbose>true</verbose>
+                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                    <gitDescribe>
+                        <skip>false</skip>
+                        <always>false</always>
+                        <abbrev>7</abbrev>
+                        <forceLongFormat>false</forceLongFormat>
+                    </gitDescribe>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <manifestEntries>
+                                        <Implementation-Title>${project.artifactId}</Implementation-Title>
+                                        <Implementation-Version>${project.version}</Implementation-Version>
+                                    </manifestEntries>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+</project>

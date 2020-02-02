@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ee-api-demo.iml" filepath="$PROJECT_DIR$/ee-api-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maven-kukkit-template.iml" filepath="$PROJECT_DIR$/maven-kukkit-template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sugar-rush.iml" filepath="$PROJECT_DIR$/sugar-rush.iml" />
+    </modules>
+  </component>
+</project>
