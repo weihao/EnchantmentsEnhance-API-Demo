@@ -6,7 +6,7 @@
     <groupId>org.pixeltime</groupId>
     <artifactId>ee-api-demo</artifactId>
     <name>eeapidemo</name>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
     <url>https://github.com/weihao/soulbound/</url>
 
