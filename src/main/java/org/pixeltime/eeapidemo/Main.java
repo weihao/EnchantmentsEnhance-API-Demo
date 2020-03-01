@@ -6,10 +6,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.pixeltime.enchantmentsenhance.api.API;
+import org.pixeltime.enchantmentsenhance.api.EnchantmentsEnhanceAPI;
 
 public class Main extends JavaPlugin implements Listener {
-    private API enhanceAPI;
+    private EnchantmentsEnhanceAPI enhanceAPI;
 
     @Override
     public void onEnable() {
